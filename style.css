@@ -1,23 +1,28 @@
-/* Bloom — Week Project Settimana V
-   Reset minimale + tipografia di base. Da qui costruisci il layout. */
-
-
-/* Reset */
-*, *::before, *::after {
+/* ==========================================================================
+   1. reset normale di base
+   ========================================================================== */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: Arial, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   color: #1a1a1a;
+  background-color: #ffffff;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
 img {
   max-width: 100%;
   height: auto;
+  display: block;
 }
 
 a {
@@ -25,5 +30,483 @@ a {
   text-decoration: none;
 }
 
+/* titoletti verdi */
+.section-title h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #1c6348;
+  margin-bottom: 0;
+}
 
-/* Aggiungi qui le tue regole, mobile-first. */
+/* spazio tra servizi e footer */
+.services {
+  padding: 5rem 1.5rem 8rem 1.5rem;
+  background-color: #ffffff;
+  transition: background-color 0.3s;
+}
+
+/* ==========================================================================
+   interrutttore tema chiaro scuro
+   ========================================================================== */
+#theme-toggle {
+  background-color: #dddddd;
+  border: none;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 0;
+}
+
+#theme-toggle i {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: #666666;
+  transition:
+    left 0.3s,
+    background-color 0.3s;
+}
+
+body.dark #theme-toggle {
+  background-color: #1c6348;
+}
+body.dark #theme-toggle i {
+  left: 27px;
+  background-color: #121212;
+  color: #fff;
+}
+
+/* ==========================================================================
+   site header e menu con varei animazioni
+   ========================================================================== */
+#site-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #ffffff;
+  z-index: 1000;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eeeeee;
+  transition:
+    padding 0.3s,
+    background-color 0.3s;
+}
+
+#site-header.scrolled {
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+#site-header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1c6348;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* menu hamburger  */
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  color: inherit;
+  cursor: pointer;
+  display: block;
+}
+
+/* diventa a tendina */
+.nav-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  gap: 1rem;
+  border-top: 1px solid #eeeeee;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.nav-menu.active {
+  display: flex;
+}
+
+/* sfondi nav radius e hover */
+.nav-link {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.nav-link:hover {
+  background-color: #e8f5e9;
+  color: #1c6348;
+}
+
+/* ==========================================================================
+   forme e animazioni del mio hero all entrata in pagina
+   ========================================================================== */
+.hero {
+  min-height: 70vh;
+  background-color: #1c6348;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1.5rem;
+}
+
+.hero-content {
+  max-width: 750px;
+  animation: heroLiftEntry 0.8s ease-out forwards;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 2.5rem;
+}
+
+.cta-btn {
+  display: inline-block;
+  background-color: #ffffff;
+  color: #1c6348;
+  padding: 0.8rem 2.2rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.btn {
+  display: inline-block;
+  background-color: #ffffff;
+  color: #1c6348;
+  padding: 0.8rem 2.2rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes heroLiftEntry {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   come sono fatte le card e quali lift hanno
+   ========================================================================== */
+.service-card {
+  background-color: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 8px;
+  border: 1px solid #eeeeee;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s,
+    background-color 0.3s,
+    border-color 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  color: #1c6348;
+  margin-bottom: 1.5rem;
+}
+
+.service-card h3 {
+  font-size: 1.3rem;
+  margin: 0 0 0.8rem 0;
+}
+.service-card p {
+  color: #666666;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* ==========================================================================
+   da 375px a 767px , colonne e forme del mobile
+   ========================================================================== */
+.services-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 3rem;
+}
+
+/* footer mobile */
+#site-footer {
+  background-color: #111111;
+  color: #ffffff;
+  padding: 4rem 1.5rem;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+#site-footer .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1c6348;
+}
+.footer-left p {
+  opacity: 0.6;
+  margin: 0.5rem 0 0 0;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.social-links a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition:
+    background-color 0.3s,
+    transform 0.3s;
+}
+.social-links a:hover {
+  background-color: #1c6348;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+.copyright {
+  opacity: 0.4;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* ==========================================================================
+   da 768px in su per i tablet
+   ========================================================================== */
+@media (min-width: 768px) {
+  /* togli hamburger e distanzia bene il menu e i vari nav */
+  .menu-toggle {
+    display: none;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    width: auto;
+    padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+    gap: 1.5rem;
+  }
+
+  /* 2 sopra 1 sorto */
+  .services-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 3rem auto 0 auto;
+  }
+
+  .services-grid .service-card {
+    flex: 1 1 calc(50% - 12px);
+  }
+
+  .services-grid .service-card.animate-card {
+    flex: 1 1 100%; /* allarga sotto*/
+  }
+
+  /* footer tablet un pelo piu distribuito */
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+
+  .footer-left {
+    flex: 1;
+  }
+  .social-links {
+    flex: 1;
+    justify-content: center;
+  }
+  .copyright {
+    flex: 1;
+    text-align: right;
+  }
+}
+
+/* ==========================================================================
+   da 1280 px ins u per i desktop e schermi grandi
+   ========================================================================== */
+@media (min-width: 1280px) {
+  /* 3 in flex sull asse x non troppo larghi */
+  .services-grid {
+    flex-wrap: nowrap;
+    max-width: 1140px;
+    justify-content: center;
+  }
+
+  .services-grid .service-card,
+  .services-grid .service-card.animate-card {
+    flex: 1 1 33.333%; /* forzo un 100 diviso 3 per avere tutte la stessa dimensione */
+  }
+}
+
+/* ==========================================================================
+   positionining per visualizzare la modale cerata in javascript
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-box {
+  background-color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  transition: background-color 0.3s;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.8rem;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: inherit;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   tema scuro e tuttu suoi colori
+   ========================================================================== */
+body.dark {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+body.dark #site-header,
+body.dark .nav-menu,
+body.dark .service-card,
+body.dark .modal-box {
+  background-color: #1e1e1e;
+  border-color: #333333;
+}
+body.dark input,
+body.dark textarea {
+  background-color: #2a2a2a;
+  color: #ffffff;
+  border-color: #444444;
+}
+body.dark #site-footer {
+  background-color: #0a0a0a;
+}

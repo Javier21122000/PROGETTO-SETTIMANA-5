@@ -1,34 +1,157 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bloom — Studio di design</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <!-- collegamento del font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- collegameto css -->
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-
+    <!-- header con logo e brand -->
     <header id="site-header">
-      <!-- Logo + nav -->
+      <div class="header-container">
+        <a href="#" class="logo"><i class="fa-solid fa-seedling"></i> Bloom</a>
+
+        <!-- cambio tema e voci menu -->
+        <div class="header-controls">
+          <!-- chiaro scuro -->
+          <button id="theme-toggle" aria-label="Cambia tema">
+            <i class="fas fa-moon"></i>
+          </button>
+
+          <!-- hamburger per mobile -->
+          <button class="menu-toggle" aria-label="Apri menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+
+        <!-- nav-->
+        <nav class="nav-menu">
+          <a href="#services" class="nav-link">Servizi</a>
+          <a href="#" class="nav-link">Lavori</a>
+          <a href="#" class="nav-link">Team</a>
+          <a href="#site-footer" class="nav-link">Contatti</a>
+        </nav>
+      </div>
     </header>
 
     <main>
-
+      <!-- hero -->
       <section class="hero">
-        <!-- Titolo, sottotitolo, bottone CTA -->
+        <div class="hero-content">
+          <h1>Trasformiamo idee in design</h1>
+          <p>
+            Siamo uno studio creativo. Identità visiva, web e motion graphic per
+            chi vuole farsi notare.
+          </p>
+          <!-- bottone per il preventivo modale -->
+          <button class="btn cta-btn">Inizia un progetto</button>
+        </div>
       </section>
 
-      <section class="services">
-        <!-- 3 card servizi: icona + titolo + descrizione -->
-      </section>
+      <!-- servizi con card-->
+      <section id="services" class="services">
+        <div class="section-title">
+          <h2>I nostri servizi</h2>
+        </div>
 
+        <div class="services-grid">
+          <!-- 1 card -->
+          <div class="service-card">
+            <div class="card-icon"><i class="fa-solid fa-pen-nib"></i></div>
+            <h3>Identità visiva</h3>
+            <p>
+              Logo, palette, tipografia e linee guida per un brand coerente,
+              riconoscibile e duraturo.
+            </p>
+          </div>
+          <!-- 2 card -->
+          <div class="service-card">
+            <div class="card-icon"><i class="fa-solid fa-laptop"></i></div>
+            <h3>Web design</h3>
+            <p>
+              Siti vetrina e landing page responsive, accessibili e ottimizzate
+              per dispositivi mobili.
+            </p>
+          </div>
+          <!-- 3 card -->
+          <div class="service-card">
+            <div class="card-icon">
+              <i class="fa-solid fa-clapperboard"></i>
+            </div>
+            <h3>Motion graphic</h3>
+            <p>
+              Animazioni e brevi video per raccontare il prodotto, i social e le
+              campagne pubblicitarie.
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
 
+    <!-- footwer -->
     <footer id="site-footer">
-      <!-- Logo, social icons, copyright -->
+      <div class="footer-container">
+        <div class="footer-left">
+          <a href="#" class="logo"
+            ><i class="fa-solid fa-seedling"></i> Bloom</a
+          >
+          <p>Studio di design fondato a Milano nel 2026.</p>
+        </div>
+
+        <div class="social-links">
+          <a href="#" aria-label="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#" aria-label="LinkedIn"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
+        </div>
+
+        <p class="copyright">
+          &copy; 2026 <i class="fa-solid fa-seedling"></i> Bloom. Tutti i
+          diritti riservati.
+        </p>
+      </div>
     </footer>
 
+    <!-- modale preventivo su html con logica in js -->
+    <div id="modal-overlay" class="modal-overlay">
+      <div class="modal-box">
+        <button class="modal-close" aria-label="Chiudi">&times;</button>
+        <h3>Richiedi un preventivo</h3>
+        <form
+          id="quote-form"
+          onsubmit="
+            event.preventDefault();
+            alert('Richiesta inviata!');
+          "
+        >
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" id="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" required />
+          </div>
+          <div class="form-group">
+            <label for="msg">Messaggio</label>
+            <textarea id="msg" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn">Invia Richiesta</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- collegamento js -->
     <script src="script.js"></script>
   </body>
 </html>
